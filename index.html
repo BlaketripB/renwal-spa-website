@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Spa & Wellness</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --copper: #B87333;
+      --copper-dark: #9A6028;
+      --copper-light: #D89A63;
+      --teal: #0F4C5C;
+      --teal-mid: #175D70;
+      --black: #1A1A1A;
+      --charcoal: #332E2A;
+      --cream: #F7F3EE;
+      --warm-tan: #E8D8C3;
+      --warm-tan-light: #EDE2D2;
+      --teal-wash: #E4EDF0;
+      --light-gray: #E2D8CC;
+      --shadow-soft: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-medium: 0 8px 32px rgba(0,0,0,0.11);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .section-label {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--black);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subheading {
+      font-size: 1.1rem;
+      color: #7A6E65;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      transform: scale(1.04);
+    }
+
+    .btn-copper {
+      background: var(--copper);
+      color: #fff;
+      border-color: var(--copper);
+    }
+
+    .btn-copper:hover {
+      background: var(--copper-dark);
+      border-color: var(--copper-dark);
+    }
+
+    .btn-teal-outline {
+      background: transparent;
+      color: #fff;
+      border-color: var(--teal);
+    }
+
+    .btn-teal-outline:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+
+    .btn-teal {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
+
+    .btn-teal:hover {
+      background: var(--teal-mid);
+      border-color: var(--teal-mid);
+    }
+
+    .btn-white-copper {
+      background: #fff;
+      color: var(--copper-dark);
+      border-color: #fff;
+    }
+
+    .btn-white-copper:hover {
+      background: var(--cream);
+      border-color: var(--cream);
+    }
+
+    /* =============================================
+       1. NAVIGATION
+    ============================================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--cream);
+      box-shadow: 0 2px 20px rgba(184, 115, 51, 0.1);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 110px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .nav-logo img,
+    .nav-logo svg {
+      height: 100px;
+      width: auto;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .footer-logo-img {
+      height: 58px;
+      width: auto;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover {
+      color: var(--copper);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      gap: 1.25rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-size: 1rem;
+      color: var(--charcoal);
+      font-weight: 400;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--copper);
+    }
+
+    /* =============================================
+       2. HERO
+    ============================================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(11, 43, 54, 0.62) 0%, rgba(15, 76, 92, 0.44) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 2rem;
+      max-width: 760px;
+      animation: heroFadeIn 1.2s ease forwards;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =============================================
+       3. WELCOME STRIP
+    ============================================= */
+    .welcome {
+      background: var(--cream);
+      padding: 100px 2rem;
+      text-align: center;
+    }
+
+    .welcome-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .welcome-statement {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.9;
+      margin-bottom: 3.5rem;
+      font-style: italic;
+    }
+
+    .welcome-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .welcome-card {
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(184, 115, 51, 0.1);
+      transition: var(--transition);
+    }
+
+    .welcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .welcome-icon {
+      font-size: 1.75rem;
+      color: var(--copper);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-card h3 {
+      font-size: 1.15rem;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome-card p {
+      font-size: 0.95rem;
+      color: #7A6E65;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       4. SERVICES
+    ============================================= */
+    .services {
+      background: var(--warm-tan);
+      padding: 100px 2rem;
+      text-align: center;
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      border-top: 3px solid var(--copper);
+      padding: 2rem 1.75rem;
+      text-align: left;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: #7A6E65;
+      line-height: 1.65;
+      font-weight: 300;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .service-duration {
+      font-size: 0.78rem;
+      background: var(--teal-wash);
+      color: var(--teal);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .service-price {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--copper-dark);
+    }
+
+    .services-note {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #999;
+      margin-bottom: 2.5rem;
+    }
+
+    /* =============================================
+       5. ABOUT
+    ============================================= */
+    .about {
+      background: var(--cream);
+      padding: 100px 2rem;
+      text-align: center;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .therapist-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .therapist-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .therapist-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .therapist-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.25rem;
+      display: block;
+      border: 4px solid var(--warm-tan);
+      box-shadow: 0 4px 16px rgba(184,115,51,0.18);
+    }
+
+    .therapist-card h3 {
+      font-size: 1.3rem;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .therapist-title {
+      font-size: 0.85rem;
+      color: var(--copper);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .therapist-phone {
+      font-size: 0.8rem;
+      color: var(--copper);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .therapist-card p {
+      font-size: 0.95rem;
+      color: #6B5E55;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* =============================================
+       6. FAQ
+    ============================================= */
+    .faq {
+      background: var(--warm-tan-light);
+      padding: 100px 2rem;
+      text-align: center;
+    }
+
+    .faq-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      user-select: none;
+      gap: 1rem;
+    }
+
+    .faq-question span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--copper);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--copper);
+      font-size: 1.1rem;
+      font-weight: 300;
+      transition: var(--transition);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--copper);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 1.5rem;
+      font-size: 0.97rem;
+      color: #6B5E55;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 600px;
+    }
+
+    /* =============================================
+       7. GIFT CARDS
+    ============================================= */
+    .gift-cards {
+      background: linear-gradient(135deg, var(--teal) 0%, #072535 100%);
+      padding: 100px 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .gift-cards-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .gift-cards h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .gift-cards p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2.5rem;
+    }
+
+    /* =============================================
+       8. FIND US / MAP
+    ============================================= */
+    .find-us {
+      background: var(--cream);
+      padding: 100px 2rem;
+    }
+
+    .find-us-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .find-us-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .find-us-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .find-us-info h3 {
+      font-size: 1.4rem;
+      color: var(--black);
+      margin-bottom: 1.75rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .info-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-item .info-text {
+      font-size: 0.96rem;
+      color: var(--charcoal);
+      line-height: 1.65;
+    }
+
+    .info-item .info-text strong {
+      display: block;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.15rem;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: var(--radius);
+      display: block;
+    }
+
+    /* =============================================
+       9. TESTIMONIALS CAROUSEL
+    ============================================= */
+    .testimonials {
+      background: var(--warm-tan);
+      padding: 100px 2rem;
+      text-align: center;
+    }
+
+    .testimonials-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .testimonial-carousel {
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: var(--radius);
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .testimonial-card {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 0;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 2.75rem 2.5rem 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .stars {
+      color: var(--copper-light);
+      font-size: 1.25rem;
+      letter-spacing: 4px;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      color: #5A4E46;
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-card cite {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--copper-dark);
+      letter-spacing: 0.5px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .review-source {
+      font-size: 0.72rem;
+      color: #9A8F87;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* Arrow buttons */
+    .carousel-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgba(184,115,51,0.2);
+      color: var(--copper);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .carousel-btn:hover {
+      background: var(--copper);
+      border-color: var(--copper);
+      color: #fff;
+    }
+
+
+    /* =============================================
+       10. CONTACT
+    ============================================= */
+    .contact {
+      background: var(--cream);
+      padding: 100px 2rem;
+    }
+
+    .contact-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-subtext {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #7A6E65;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 3rem 2.5rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.96rem;
+      color: var(--charcoal);
+      background: var(--cream);
+      border: 1.5px solid #e0dbd4;
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--copper);
+    }
+
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+      border-color: #e05c5c;
+    }
+
+    .form-group .field-error {
+      font-size: 0.78rem;
+      color: #e05c5c;
+      margin-top: 0.3rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-submit-wrap {
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    .form-submit-wrap .btn {
+      padding: 0.85rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .form-success {
+      display: none;
+      background: #e8f7f0;
+      border: 1.5px solid #70c49a;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      color: #2a7a56;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.97rem;
+    }
+
+    .book-direct {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .book-direct span {
+      font-size: 1rem;
+      color: var(--charcoal);
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--copper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--copper);
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--copper);
+      color: #fff;
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* =============================================
+       11. FOOTER
+    ============================================= */
+    .footer {
+      background: #0B2B36;
+      color: rgba(255,255,255,0.75);
+      padding: 70px 2rem 0;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-logo {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: var(--transition);
+    }
+
+    .footer-social-link:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .footer-social-link svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--copper);
+    }
+
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-hours span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-hours span strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .welcome-cards {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .therapist-cards {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .find-us-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .footer-inner > *:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-form {
+        padding: 2rem 1.25rem;
+      }
+
+      .welcome, .services, .about, .faq, .gift-cards,
+      .find-us, .testimonials, .contact {
+        padding: 70px 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       1. NAVIGATION
+  ================================================ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="Renewal.png" alt="Renewal Spa" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#find-us">Find Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="btn btn-copper">Book Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#find-us">Find Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" style="color: var(--copper); font-weight: 700;">Book Now →</a>
+      </nav>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       2. HERO
+  ================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Welcome to Your Sanctuary</span>
+      <h1>Serenity Spa &amp; Wellness</h1>
+      <p class="hero-sub">Where healing begins — one breath at a time.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-copper">Book Your Visit</a>
+        <a href="#services" class="btn btn-teal-outline">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       3. WELCOME STRIP
+  ================================================ -->
+  <section class="welcome">
+    <div class="welcome-inner">
+      <p class="welcome-statement" data-aos="fade-up">
+        Nestled in the heart of our community, Serenity Spa &amp; Wellness is a place where skilled hands, calming environments, and intentional care come together. We believe wellness is not a luxury — it is a necessity.
+      </p>
+      <div class="welcome-cards">
+        <div class="welcome-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="welcome-icon">✦</span>
+          <h3>Licensed Therapists</h3>
+          <p>Trained, certified, and deeply passionate about healing.</p>
+        </div>
+        <div class="welcome-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="welcome-icon">✦</span>
+          <h3>Personalized Care</h3>
+          <p>Every session tailored to your unique needs.</p>
+        </div>
+        <div class="welcome-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="welcome-icon">✦</span>
+          <h3>A True Sanctuary</h3>
+          <p>Step in. Let go. Leave restored.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       4. SERVICES
+  ================================================ -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <span class="section-label" data-aos="fade-up">What We Offer</span>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Our Treatments</h2>
+      <p class="section-subheading" data-aos="fade-up" data-aos-delay="100">An investment in your wellbeing</p>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <h3>Swedish Massage</h3>
+          <p>A flowing, relaxing full-body massage perfect for stress relief.</p>
+          <div class="service-meta">
+            <span class="service-duration">60 min / 90 min</span>
+            <span class="service-price">$90 / $130</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>Deep Tissue Massage</h3>
+          <p>Targeted pressure to release chronic tension and muscle tightness.</p>
+          <div class="service-meta">
+            <span class="service-duration">60 min / 90 min</span>
+            <span class="service-price">$100 / $145</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+          <h3>Hot Stone Massage</h3>
+          <p>Warm basalt stones melt away tension from the inside out.</p>
+          <div class="service-meta">
+            <span class="service-duration">90 min</span>
+            <span class="service-price">$155</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <h3>Prenatal Massage</h3>
+          <p>Gentle, safe relief designed for expecting mothers.</p>
+          <div class="service-meta">
+            <span class="service-duration">60 min</span>
+            <span class="service-price">$95</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>Signature Facial</h3>
+          <p>A customized facial to restore glow, balance, and clarity.</p>
+          <div class="service-meta">
+            <span class="service-duration">60 min</span>
+            <span class="service-price">$110</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+          <h3>Body Scrub &amp; Wrap</h3>
+          <p>Exfoliate, nourish, and renew from head to toe.</p>
+          <div class="service-meta">
+            <span class="service-duration">75 min</span>
+            <span class="service-price">$120</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="services-note" data-aos="fade-up">Pricing is subject to change. Contact us to build a custom experience.</p>
+      <a href="#contact" class="btn btn-copper" data-aos="fade-up">Book a Treatment</a>
+    </div>
+  </section>
+
+  <!-- ================================================
+       5. ABOUT
+  ================================================ -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <span class="section-label" data-aos="fade-up">The Hands Behind Your Healing</span>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Meet Your Therapists</h2>
+
+      <div class="therapist-cards">
+
+        <div class="therapist-card" data-aos="fade-up" data-aos-delay="0">
+          <img src="https://i.pravatar.cc/200?img=47" alt="Shiloh Bowles, LMT" class="therapist-img" />
+          <h3>Shiloh Bowles, LMT</h3>
+          <span class="therapist-title">Lead Massage Therapist</span>
+          <span class="therapist-phone">📞 (801) 836-9837</span>
+          <p>Sarah has been practicing massage therapy for over 10 years, specializing in deep tissue and hot stone techniques. She holds certifications in prenatal massage and myofascial release. Sarah's approach is rooted in the belief that the body knows how to heal — her role is simply to help it get there. Outside the spa, she is a yoga instructor and avid meditator.</p>
+        </div>
+
+        <div class="therapist-card" data-aos="fade-up" data-aos-delay="150">
+          <img src="https://i.pravatar.cc/200?img=64" alt="Sheila Hone, LMT" class="therapist-img" />
+          <h3>Sheila Hone, LMT</h3>
+          <span class="therapist-title">Lead Massage Therapist</span>
+          <span class="therapist-phone">📞 (801) 465-8777</span>
+          <p>Jordan brings a holistic philosophy to every session, weaving together advanced facial techniques, aromatherapy, and Swedish massage into treatments that nourish both skin and soul. With 8 years of experience and a background in esthetics, Jordan specializes in our Signature Facial and Body Scrub services. A devotee of plant-based skincare, Jordan believes that true radiance begins from within.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       6. FAQ
+  ================================================ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <span class="section-label" data-aos="fade-up">Have Questions?</span>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Your Questions, Answered</h2>
+
+      <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span>What does my first visit to the spa look like?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </div>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              We want your first visit to feel seamless and stress-free. When you arrive, you will be warmly greeted and asked to complete a brief intake form covering your health history and any areas of focus. One of our therapists will then walk you through what to expect for your chosen service, answer any questions, and customize the session to your needs. Plan to arrive 10–15 minutes early so you can settle in, breathe, and begin to unwind before your treatment even starts.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span>What should I wear to the spa?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </div>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              We recommend arriving in comfortable, loose-fitting clothing. For massage services, you will undress to your comfort level and be professionally draped with a sheet and blanket throughout your session — only the area being worked on is ever uncovered. For facial services, a headband and robe are provided. You are always in control of your comfort, and our therapists will check in with you throughout.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span>Can I bring my kids?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </div>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              We lovingly ask that all guests be 18 years of age or older. Our space is intentionally designed as an adult sanctuary — a place to fully disconnect, decompress, and restore. We deeply appreciate your understanding and look forward to giving you the quiet, restorative experience you deserve.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span>What should I expect after a treatment?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </div>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              It is completely normal to feel deeply relaxed, slightly drowsy, or even a little tender after your session — especially after deeper pressure work. We encourage you to drink plenty of water, avoid strenuous exercise for the rest of the day, and give your body time to integrate the work. Many clients notice continued benefits in the 24–48 hours following a treatment. The more consistently you come in, the more lasting the results.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       7. GIFT CARDS
+  ================================================ -->
+  <section class="gift-cards">
+    <div class="gift-cards-inner" data-aos="fade-up">
+      <h2>Give the Gift of Relaxation</h2>
+      <p>Not sure what to get someone special? A Serenity Spa gift card is the perfect way to say you care. Available in any amount, redeemable for any service.</p>
+      <a href="#" class="btn btn-white-copper">Purchase a Gift Card</a>
+    </div>
+  </section>
+
+  <!-- ================================================
+       8. FIND US
+  ================================================ -->
+  <section class="find-us" id="find-us">
+    <div class="find-us-inner">
+      <div class="find-us-header">
+        <span class="section-label" data-aos="fade-up">Come See Us</span>
+        <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Find Us</h2>
+      </div>
+
+      <div class="find-us-grid">
+        <div class="find-us-info" data-aos="fade-up" data-aos-delay="0">
+          <h3>Visit Serenity Spa</h3>
+
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div class="info-text">
+              <strong>Address</strong>
+              123 Serenity Lane, Suite 101<br>City, State 00000
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div class="info-text">
+              <strong>Phone</strong>
+              <a href="tel:5558675309" style="color: var(--charcoal);">(555) 867-5309</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">✉️</span>
+            <div class="info-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@serenityspa.com" style="color: var(--charcoal);">hello@serenityspa.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🕐</span>
+            <div class="info-text">
+              <strong>Hours</strong>
+              Monday – Friday: 9am – 7pm<br>
+              Saturday: 9am – 5pm<br>
+              Sunday: By Appointment Only
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap" data-aos="fade-up" data-aos-delay="150">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ3LjMiTiA3NMKwMDAnMTMuMyJX!5e0!3m2!1sen!2sus!4v1234567890"
+            width="100%"
+            height="400"
+            style="border:0; border-radius: 12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Serenity Spa Location Map"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       9. TESTIMONIALS
+  ================================================ -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <span class="section-label" data-aos="fade-up">Kind Words</span>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">What Our Guests Say</h2>
+
+      <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="reviewTrack">
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"I had an appointment with Shiloh and I was not disappointed. I'm 26 weeks pregnant and she kept me comfortable and happy! I felt so relaxed and her massage techniques are great. She asked which areas (if any) that I'd like her to focus on and she did an amazing job. She is sweet and friendly and I'll definitely be back!"</blockquote>
+              <cite>— Lindsey B.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Sheila is the best! She makes it so comfortable when you go in. She is quick and efficient. 100% recommend her!"</blockquote>
+              <cite>— Deana C.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"A really wonderful prenatal massage, it was just right and so relaxing! She knew just where the spots were to work on and it relieved the tension in my hips. I left feeling very satisfied."</blockquote>
+              <cite>— Summer G.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Sheila is so so nice. She's someone you instantly connect with and she does a great job! She educated me on great practices, didn't pressure me to come back, and was all around great making sure I was happy with her service. AND she's reasonably priced. I will definitely only be going back to her."</blockquote>
+              <cite>— Mckell M.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"I went to Sheila for a Brazilian and I'm fully convinced she's a witch or something in the best way!! That was the most pain free and fastest wax I've ever had. She made me so comfortable and I have zero irritation! She's incredible! Best wax I've ever had."</blockquote>
+              <cite>— Aubri S.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"I see Julie once a month for a deep tissue massage. Her office is clean and comfortable. She is professional and is an amazing massage therapist. I love that she stays up to date on the newest techniques! Julie is the best. I highly recommend her!"</blockquote>
+              <cite>— Melissa D.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"I go to Renewal Day Spa for massages about once a month. Julie is very friendly. She is highly skilled and professional and her massages are always therapeutic and relaxing. I always feel comfortable and welcome. I recommend her services to anyone in the area."</blockquote>
+              <cite>— Chautel M.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Sheila is one of those ladies that you can just 'click' with! Her confidence with Brazilians just instantly makes you believe it will go well. AND IT DID! Definitely a great experience. And I have been waxed MANY times. Certainly will be back and spreading the word!"</blockquote>
+              <cite>— Sarah C.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"This is clean, quiet with very professional staff. I was very happy with my experience and have made several appointments for my husband too. He has back problems — more impressive is he would NEVER go back unless he was 100% comfortable. He just called me asking if I'd make him another appointment."</blockquote>
+              <cite>— Kathleen L.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"I was cranky, a real pain in the neck, and my wife suggested I get a massage. Julie is the best! Friendly, professional, with an accommodating schedule. She rubbed the pain out of my neck like a champ and sent me home. My wife said, 'Wow, you're not such a pain in so much pain now.' Thanks, Julie. You're a healing angel!"</blockquote>
+              <cite>— Larry M.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Calm relaxing environment, excellent massage. I feel 100 times better! That massage was a perfect combination of relaxation, deep tissue and hot stone. I've never had a massage tailored so specifically to my needs before."</blockquote>
+              <cite>— Amanda L.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"It was my first time getting a massage and I was nervous but Julie was very kind to answer questions to help me feel comfortable and focused on the areas that I was feeling stiff and or sore."</blockquote>
+              <cite>— Sarah P.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Love Julie, she really knows her stuff and helps you feel your best after an appointment of therapeutic excellence."</blockquote>
+              <cite>— Jan R.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Julie is amazing! I have been going to her for a couple of years. I highly recommend her!"</blockquote>
+              <cite>— Kelly L.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Love this place. I've been seeing Sheila for over a decade now. She's amazing!"</blockquote>
+              <cite>— Tara H.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Julie has always done an amazing job for me. She always asks if there is something specific that is needed."</blockquote>
+              <cite>— Jennifer S.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Julie did a great job! I will definitely return."</blockquote>
+              <cite>— Melissa A.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Great place, very relaxing. Sheila was wonderful. Will be going back."</blockquote>
+              <cite>— Jess S.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Great massage. Really made my back feel great!"</blockquote>
+              <cite>— Will M.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"She is super nice and great at what she does."</blockquote>
+              <cite>— Taylor T.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Absolutely wonderful experience every time!!"</blockquote>
+              <cite>— Yvonne P.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"These ladies are amazing!"</blockquote>
+              <cite>— Lindsey A.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Clean and neat. Friendly staff."</blockquote>
+              <cite>— Sarah N.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Great customer service."</blockquote>
+              <cite>— Christina Y.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+            <div class="testimonial-card">
+              <span class="stars">★★★★★</span>
+              <blockquote>"Sheila is awesome."</blockquote>
+              <cite>— Nicole J.</cite>
+              <span class="review-source">Google Review</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel-arrows">
+          <button class="carousel-btn" id="reviewPrev" aria-label="Previous review">&#8592;</button>
+          <button class="carousel-btn" id="reviewNext" aria-label="Next review">&#8594;</button>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       10. CONTACT
+  ================================================ -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <span class="section-label" data-aos="fade-up">Let's Get Started</span>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Ready to Unwind?</h2>
+      <p class="contact-subtext" data-aos="fade-up" data-aos-delay="100">Reach out to book your appointment, ask a question, or start building your custom wellness plan.</p>
+
+      <div class="contact-form" data-aos="fade-up" data-aos-delay="150">
+        <form id="contactForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name <span style="color:#e05c5c;">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" required />
+              <span class="field-error" id="fullNameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:#e05c5c;">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              <span class="field-error" id="emailError"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number <span style="color:#e05c5c;">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+              <span class="field-error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+              <label for="service">Service of Interest <span style="color:#e05c5c;">*</span></label>
+              <select id="service" name="service" required>
+                <option value="">Select a service…</option>
+                <option>Swedish Massage</option>
+                <option>Deep Tissue Massage</option>
+                <option>Hot Stone Massage</option>
+                <option>Prenatal Massage</option>
+                <option>Signature Facial</option>
+                <option>Body Scrub &amp; Wrap</option>
+                <option>Gift Card</option>
+                <option>Other</option>
+              </select>
+              <span class="field-error" id="serviceError"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message / Notes</label>
+            <textarea id="message" name="message" placeholder="Anything we should know? Preferences, questions, or special requests…"></textarea>
+          </div>
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn btn-copper">Send Message</button>
+          </div>
+
+          <div class="form-success" id="formSuccess" role="alert">
+            ✓ Your message has been sent! We'll be in touch within one business day.
+          </div>
+
+        </form>
+      </div>
+
+      <div class="social-row" data-aos="fade-up">
+        <!-- Instagram -->
+        <a href="#" class="social-link" aria-label="Follow us on Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="social-link" aria-label="Follow us on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================
+       11. FOOTER
+  ================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div>
+        <span class="footer-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 130" height="58" aria-label="Renewal">
+            <path d="M160,46 L160,12" stroke="#D89A63" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M160,38 C149,30 136,33 137,39 C138,44 151,45 160,38Z" fill="#D89A63"/>
+            <path d="M160,38 C171,30 184,33 183,39 C182,44 169,45 160,38Z" fill="#D89A63"/>
+            <path d="M160,25 C151,17 139,20 140,26 C141,31 153,31 160,25Z" fill="#D89A63"/>
+            <path d="M160,25 C169,17 181,20 180,26 C179,31 167,31 160,25Z" fill="#D89A63"/>
+            <path d="M160,13 C155,6 157,1 160,0 C163,1 165,6 160,13Z" fill="#D89A63"/>
+            <text x="160" y="112" font-family="'Great Vibes', 'Dancing Script', cursive" font-size="66" fill="#E8D8C3" text-anchor="middle">Renewal</text>
+          </svg>
+        </span>
+        <span class="footer-tagline">Where healing begins.</span>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#find-us">Find Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <div class="footer-hours">
+          <span><strong>Mon – Fri</strong> 9am – 7pm</span>
+          <span><strong>Saturday</strong> 9am – 5pm</span>
+          <span><strong>Sunday</strong> By Appt. Only</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Serenity Spa &amp; Wellness. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // =============================================
+    // AOS INIT
+    // =============================================
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 60
+    });
+
+    // =============================================
+    // HAMBURGER MENU
+    // =============================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile nav when a link is clicked
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // =============================================
+    // SMOOTH SCROLL — nav links
+    // (html { scroll-behavior: smooth } handles it,
+    //  but this ensures offset for sticky navbar)
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const navH = document.querySelector('.navbar').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // =============================================
+    // FAQ ACCORDION
+    // =============================================
+    document.querySelectorAll('.faq-question').forEach(question => {
+      const activate = () => {
+        const item = question.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      question.addEventListener('click', activate);
+      question.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+
+    // =============================================
+    // CONTACT FORM VALIDATION
+    // =============================================
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function setError(fieldId, errorId, message) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      field.classList.add('error');
+      error.textContent = message;
+    }
+
+    function clearError(fieldId, errorId) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      field.classList.remove('error');
+      error.textContent = '';
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Live validation
+    ['fullName', 'email', 'phone', 'service'].forEach(id => {
+      const field = document.getElementById(id);
+      field.addEventListener('input', () => clearError(id, id + 'Error'));
+      field.addEventListener('change', () => clearError(id, id + 'Error'));
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+
+      clearError('fullName', 'fullNameError');
+      clearError('email', 'emailError');
+      clearError('phone', 'phoneError');
+      clearError('service', 'serviceError');
+
+      if (!name) {
+        setError('fullName', 'fullNameError', 'Please enter your full name.');
+        valid = false;
+      }
+
+      if (!email) {
+        setError('email', 'emailError', 'Please enter your email address.');
+        valid = false;
+      } else if (!validateEmail(email)) {
+        setError('email', 'emailError', 'Please enter a valid email address.');
+        valid = false;
+      }
+
+      if (!phone) {
+        setError('phone', 'phoneError', 'Please enter your phone number.');
+        valid = false;
+      }
+
+      if (!service) {
+        setError('service', 'serviceError', 'Please select a service.');
+        valid = false;
+      }
+
+      if (valid) {
+        form.reset();
+        formSuccess.style.display = 'block';
+        setTimeout(() => { formSuccess.style.display = 'none'; }, 6000);
+      }
+    });
+
+    // =============================================
+    // REVIEW CAROUSEL
+    // =============================================
+    (function () {
+      var track  = document.getElementById('reviewTrack');
+      if (!track) return;
+
+      var cards  = track.querySelectorAll('.testimonial-card');
+      var total  = cards.length;
+      var current = 0;
+      var timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function() { goTo(current + 1); }, 6000);
+      }
+
+      document.getElementById('reviewPrev').addEventListener('click', function() { goTo(current - 1); resetTimer(); });
+      document.getElementById('reviewNext').addEventListener('click', function() { goTo(current + 1); resetTimer(); });
+
+      // Swipe support
+      var tx = 0;
+      track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function(e) {
+        var diff = tx - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
+      });
+
+      resetTimer();
+    })();
+
+  </script>
+
+</body>
+</html>
