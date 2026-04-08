@@ -183,7 +183,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(7, auto) 1fr;
+      grid-template-columns: repeat(7, auto);
       align-items: center;
       gap: 0.25rem 0;
     }
@@ -488,12 +488,15 @@
         <a href="index.html" class="nav-logo">
           <img src="transparent-logo.png" alt="Renewal Day Spa" />
         </a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-          <div class="toggle-bars">
-            <span></span><span></span><span></span>
-          </div>
-          <span>Menu</span>
-        </button>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="index.html#contact" class="btn btn-copper">Book Now</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+            <div class="toggle-bars">
+              <span></span><span></span><span></span>
+            </div>
+            <span>Menu</span>
+          </button>
+        </div>
       </div>
       <div class="nav-dropdown" id="navDropdown">
         <div class="nav-dropdown-inner">
@@ -504,7 +507,6 @@
           <a href="index.html#faq">FAQ</a>
           <a href="index.html#find-us">Find Us</a>
           <a href="index.html#contact">Contact</a>
-          <a href="index.html#contact" class="btn btn-copper">Book Now</a>
         </div>
       </div>
     </nav>
