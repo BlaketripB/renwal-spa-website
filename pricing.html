@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Renewal Day Spa | Payson, UT</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --copper: #B87333;
+      --copper-dark: #9A6028;
+      --copper-light: #D89A63;
+      --teal: #0F4C5C;
+      --teal-mid: #175D70;
+      --black: #1A1A1A;
+      --charcoal: #332E2A;
+      --cream: #F7F3EE;
+      --warm-tan: #E8D8C3;
+      --warm-tan-light: #EDE2D2;
+      --teal-wash: #E4EDF0;
+      --light-gray: #E2D8CC;
+      --shadow-soft: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-medium: 0 8px 32px rgba(0,0,0,0.11);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; color: var(--charcoal); background: var(--cream); overflow-x: hidden; line-height: 1.7; }
+    img { max-width: 100%; object-fit: cover; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .section-label {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--black);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subheading {
+      font-size: 1.1rem;
+      color: #7A6E65;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--cream);
+      box-shadow: 0 2px 20px rgba(184, 115, 51, 0.1);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 110px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .nav-logo img {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover { color: var(--copper); }
+    .nav-links a.active { color: var(--copper); font-weight: 700; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn:hover { transform: scale(1.04); }
+
+    .btn-copper {
+      background: var(--copper);
+      color: #fff;
+      border-color: var(--copper);
+    }
+
+    .btn-copper:hover {
+      background: var(--copper-dark);
+      border-color: var(--copper-dark);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      gap: 1.25rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-size: 1rem;
+      color: var(--charcoal);
+      font-weight: 400;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--copper); }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--teal);
+      padding: 70px 2rem 60px;
+      text-align: center;
+    }
+
+    .page-header .section-label { color: var(--copper-light); }
+
+    .page-header h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+
+    .page-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .page-header .back-link:hover { color: var(--copper-light); }
+
+    /* PRICING */
+    .pricing {
+      background: var(--cream);
+      padding: 80px 2rem 100px;
+    }
+
+    .pricing-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .pricing-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .pricing-category {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .pricing-cat-header {
+      background: var(--teal);
+      padding: 1.4rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pricing-cat-header h3 {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .pricing-cat-provider {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pricing-cat-body { padding: 1.75rem 2.25rem; }
+
+    .pricing-sub-heading {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin: 1.75rem 0 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--warm-tan);
+      display: block;
+    }
+
+    .pricing-sub-heading:first-child { margin-top: 0; }
+
+    .pricing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(232,216,195,0.4);
+      gap: 1.5rem;
+    }
+
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-info { flex: 1; min-width: 0; }
+
+    .pricing-item-name {
+      font-size: 0.92rem;
+      color: var(--black);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .pricing-item-sub {
+      font-size: 0.76rem;
+      color: #9A8F87;
+      font-weight: 300;
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .pricing-item-price {
+      font-size: 0.95rem;
+      color: var(--copper-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pricing-note-box {
+      margin-top: 2rem;
+      background: rgba(15,76,92,0.04);
+      border: 1px solid rgba(15,76,92,0.1);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .pricing-note-box p {
+      font-size: 0.87rem;
+      color: #6B5E55;
+      line-height: 1.8;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    .pricing-note-box strong { color: var(--teal-mid); font-weight: 600; }
+
+    .pricing-footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      color: #7A6E65;
+      font-size: 0.95rem;
+    }
+
+    .pricing-footer-note a { color: var(--copper); }
+
+    /* FOOTER */
+    .footer {
+      background: #0B2B36;
+      color: rgba(255,255,255,0.75);
+      padding: 70px 2rem 0;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-logo { display: block; margin-bottom: 0.5rem; }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .footer-social { display: flex; gap: 0.75rem; }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: var(--transition);
+    }
+
+    .footer-social-link:hover { border-color: var(--copper); color: var(--copper); }
+    .footer-social-link svg { width: 15px; height: 15px; fill: currentColor; }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .footer-links a {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--copper); }
+
+    .footer-hours { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .footer-hours span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+      .nav-inner { height: 80px; }
+      .nav-logo img { height: 70px; width: 70px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-inner > *:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="transparent-logo.png" alt="Renewal Day Spa" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="pricing.html" class="active">Pricing</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#find-us">Find Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#contact" class="btn btn-copper">Book Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html" style="color: var(--copper); font-weight: 700;">Pricing</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#find-us">Find Us</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" style="color: var(--copper); font-weight: 700;">Book Now →</a>
+      </nav>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <a href="index.html#services" class="back-link">← Back to Services</a>
+    <span class="section-label">Full Menu</span>
+    <h1>Services &amp; Pricing</h1>
+    <p>All services are by appointment — call or text to schedule</p>
+  </div>
+
+  <section class="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-sections">
+
+        <!-- MASSAGE -->
+        <div class="pricing-category" data-aos="fade-up">
+          <div class="pricing-cat-header">
+            <h3>Massage</h3>
+            <span class="pricing-cat-provider">By Shiloh</span>
+          </div>
+          <div class="pricing-cat-body">
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">30-Minute Massage</span></div>
+              <span class="pricing-item-price">$45</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">45-Minute Massage</span></div>
+              <span class="pricing-item-price">$60</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">60-Minute Massage</span></div>
+              <span class="pricing-item-price">$75</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">75-Minute Massage</span></div>
+              <span class="pricing-item-price">$90</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">90-Minute Massage</span></div>
+              <span class="pricing-item-price">$105</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">120-Minute Massage</span></div>
+              <span class="pricing-item-price">$140</span>
+            </div>
+            <p class="pricing-sub-heading">Add-Ons</p>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Hot Stones</span></div>
+              <span class="pricing-item-price">+$15</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Foot Scrub</span></div>
+              <span class="pricing-item-price">+$15</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Aromatherapy</span></div>
+              <span class="pricing-item-price">+$5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FACIALS -->
+        <div class="pricing-category" data-aos="fade-up">
+          <div class="pricing-cat-header">
+            <h3>Facials</h3>
+            <span class="pricing-cat-provider">By Sheila</span>
+          </div>
+          <div class="pricing-cat-body">
+            <div class="pricing-item">
+              <div class="pricing-item-info">
+                <span class="pricing-item-name">Classic Facial</span>
+                <span class="pricing-item-sub">60 min — cleanse, exfoliate, extractions, mask &amp; moisturize</span>
+              </div>
+              <span class="pricing-item-price">$75</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info">
+                <span class="pricing-item-name">Deluxe Facial</span>
+                <span class="pricing-item-sub">90 min — everything in classic + advanced serums &amp; massage</span>
+              </div>
+              <span class="pricing-item-price">$110</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WAXING -->
+        <div class="pricing-category" data-aos="fade-up">
+          <div class="pricing-cat-header">
+            <h3>Waxing</h3>
+            <span class="pricing-cat-provider">By Sheila</span>
+          </div>
+          <div class="pricing-cat-body">
+            <p class="pricing-sub-heading">Face</p>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Eyebrows</span></div>
+              <span class="pricing-item-price">$18</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Upper Lip</span></div>
+              <span class="pricing-item-price">$12</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Chin</span></div>
+              <span class="pricing-item-price">$12</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Full Face</span></div>
+              <span class="pricing-item-price">$45</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Sideburns</span></div>
+              <span class="pricing-item-price">$15</span>
+            </div>
+            <p class="pricing-sub-heading">Body</p>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Underarms</span></div>
+              <span class="pricing-item-price">$25</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Half Arm</span></div>
+              <span class="pricing-item-price">$30</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Full Arm</span></div>
+              <span class="pricing-item-price">$50</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Half Leg</span></div>
+              <span class="pricing-item-price">$40</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Full Leg</span></div>
+              <span class="pricing-item-price">$70</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Bikini</span></div>
+              <span class="pricing-item-price">$35</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Brazilian</span></div>
+              <span class="pricing-item-price">$60</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Back</span></div>
+              <span class="pricing-item-price">$55</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERMANENT JEWELRY -->
+        <div class="pricing-category" data-aos="fade-up">
+          <div class="pricing-cat-header">
+            <h3>Permanent Jewelry</h3>
+            <span class="pricing-cat-provider">By Sheila</span>
+          </div>
+          <div class="pricing-cat-body">
+            <p class="pricing-sub-heading">Starting Prices by Material</p>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Sterling Silver</span></div>
+              <span class="pricing-item-price">From $30</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Gold-Filled</span></div>
+              <span class="pricing-item-price">From $45</span>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Solid Gold</span></div>
+              <span class="pricing-item-price">From $85</span>
+            </div>
+            <p class="pricing-sub-heading">Extras</p>
+            <div class="pricing-item">
+              <div class="pricing-item-info"><span class="pricing-item-name">Charm Add-On</span></div>
+              <span class="pricing-item-price">+$10–$30</span>
+            </div>
+            <div class="pricing-note-box">
+              <p><strong>Note:</strong> Final price depends on chain length and style. No clasp — welded to fit perfectly. Great for bracelets, anklets, and necklaces.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="pricing-footer-note" data-aos="fade-up">
+        Prices subject to change. Call or text <a href="tel:8014658777">(801) 465-8777</a> to book your appointment.
+      </p>
+
+      <div style="text-align:center; margin-top:2.5rem;" data-aos="fade-up">
+        <a href="index.html#contact" class="btn btn-copper">Book an Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 130" height="58" aria-label="Renewal">
+            <path d="M160,46 L160,12" stroke="#D89A63" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M160,38 C149,30 136,33 137,39 C138,44 151,45 160,38Z" fill="#D89A63"/>
+            <path d="M160,38 C171,30 184,33 183,39 C182,44 169,45 160,38Z" fill="#D89A63"/>
+            <path d="M160,25 C151,17 139,20 140,26 C141,31 153,31 160,25Z" fill="#D89A63"/>
+            <path d="M160,25 C169,17 181,20 180,26 C179,31 167,31 160,25Z" fill="#D89A63"/>
+            <path d="M160,13 C155,6 157,1 160,0 C163,1 165,6 160,13Z" fill="#D89A63"/>
+            <text x="160" y="112" font-family="'Great Vibes', 'Dancing Script', cursive" font-size="66" fill="#E8D8C3" text-anchor="middle">Renewal</text>
+          </svg>
+        </span>
+        <span class="footer-tagline">Where healing begins.</span>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-hours">
+          <span>📞 <a href="tel:8014658777" style="color: rgba(255,255,255,0.6); text-decoration: none;">(801) 465-8777</a></span>
+          <span>📍 764 E 100 N, Downstairs</span>
+          <span>Payson, UT 84651</span>
+          <span style="margin-top: 0.5rem;">By appointment only</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Renewal Day Spa. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
