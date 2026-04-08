@@ -97,23 +97,6 @@
       display: block;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      transition: color 0.2s;
-      letter-spacing: 0.3px;
-    }
-
-    .nav-links a:hover { color: var(--copper); }
-    .nav-links a.active { color: var(--copper); font-weight: 700; }
-
     .btn {
       display: inline-block;
       padding: 0.75rem 1.75rem;
@@ -140,50 +123,108 @@
       border-color: var(--copper-dark);
     }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       background: none;
-      border: none;
+      border: 1.5px solid var(--warm-tan);
+      border-radius: 50px;
+      padding: 0.5rem 1.1rem;
+      cursor: pointer;
+      color: var(--charcoal);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
     }
 
-    .hamburger span {
+    .menu-toggle:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .menu-toggle .toggle-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle .toggle-bars span {
       display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--charcoal);
+      width: 18px;
+      height: 1.5px;
+      background: currentColor;
       border-radius: 2px;
       transition: var(--transition);
     }
 
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-toggle.open .toggle-bars span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .menu-toggle.open .toggle-bars span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open .toggle-bars span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-    .mobile-nav {
+    .nav-dropdown {
       display: none;
-      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
       background: var(--cream);
-      padding: 1.5rem 2rem;
-      gap: 1.25rem;
-      border-top: 1px solid var(--light-gray);
+      border-top: 1px solid var(--warm-tan);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      z-index: 999;
+      padding: 2.5rem 2rem;
     }
 
-    .mobile-nav.open { display: flex; }
+    .nav-dropdown.open { display: block; }
 
-    .mobile-nav a {
+    .nav-dropdown-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(7, auto) 1fr;
+      align-items: center;
+      gap: 0.25rem 0;
+    }
+
+    .nav-dropdown-inner a:not(.btn) {
       font-size: 1rem;
       color: var(--charcoal);
       font-weight: 400;
-      padding: 0.25rem 0;
-      border-bottom: 1px solid var(--light-gray);
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      white-space: nowrap;
     }
 
-    .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav a:hover { color: var(--copper); }
+    .nav-dropdown-inner a:not(.btn):hover {
+      background: var(--warm-tan-light);
+      color: var(--copper-dark);
+    }
+
+    .nav-dropdown-inner a.active {
+      color: var(--copper);
+      font-weight: 700;
+    }
+
+    .nav-dropdown-inner .btn { margin-left: auto; }
+
+    @media (max-width: 768px) {
+      .nav-dropdown-inner {
+        grid-template-columns: 1fr;
+      }
+      .nav-dropdown-inner a:not(.btn) {
+        padding: 0.75rem 0.5rem;
+        border-bottom: 1px solid var(--light-gray);
+        border-radius: 0;
+      }
+      .nav-dropdown-inner .btn {
+        margin-left: 0;
+        margin-top: 1rem;
+        text-align: center;
+      }
+    }
 
     /* PAGE HEADER */
     .page-header {
@@ -428,8 +469,6 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .nav-links { display: none; }
       .nav-inner { height: 80px; }
       .nav-logo img { height: 70px; width: 70px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -443,36 +482,31 @@
 </head>
 <body>
 
-  <header>
+  <header style="position:sticky; top:0; z-index:1000;">
     <nav class="navbar" aria-label="Main navigation">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
           <img src="transparent-logo.png" alt="Renewal Day Spa" />
         </a>
-        <ul class="nav-links" role="list">
-          <li><a href="index.html#hero">Home</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="pricing.html" class="active">Pricing</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
-          <li><a href="index.html#find-us">Find Us</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="index.html#contact" class="btn btn-copper">Book Now</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
-          <span></span><span></span><span></span>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <div class="toggle-bars">
+            <span></span><span></span><span></span>
+          </div>
+          <span>Menu</span>
         </button>
       </div>
-      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-        <a href="index.html#hero">Home</a>
-        <a href="index.html#services">Services</a>
-        <a href="pricing.html" style="color: var(--copper); font-weight: 700;">Pricing</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="index.html#find-us">Find Us</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="index.html#contact" style="color: var(--copper); font-weight: 700;">Book Now →</a>
-      </nav>
+      <div class="nav-dropdown" id="navDropdown">
+        <div class="nav-dropdown-inner">
+          <a href="index.html#hero">Home</a>
+          <a href="index.html#services">Services</a>
+          <a href="pricing.html" class="active">Pricing</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#find-us">Find Us</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#contact" class="btn btn-copper">Book Now</a>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -722,21 +756,29 @@
   <script>
     AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
 
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+    const menuToggle = document.getElementById('menuToggle');
+    const navDropdown = document.getElementById('navDropdown');
 
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navDropdown.classList.toggle('open');
+      menuToggle.classList.toggle('open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    mobileNav.querySelectorAll('a').forEach(link => {
+    navDropdown.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        navDropdown.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 </body>
