@@ -1,9 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DaySpa",
+    "name": "Renewal Day Spa",
+    "description": "Therapeutic massage, facials, waxing, and permanent jewelry in Payson, Utah. By appointment only.",
+    "url": "https://renwal-spa-website.vercel.app/",
+    "telephone": "+1-801-465-8777",
+    "image": "https://renwal-spa-website.vercel.app/Renewal.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "764 E 100 N, Downstairs",
+      "addressLocality": "Payson",
+      "addressRegion": "UT",
+      "postalCode": "84651",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.0447,
+      "longitude": -111.7247
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "17",
+      "bestRating": "5"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Spa Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Swedish Massage", "description": "Light to medium pressure massage for deep relaxation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialized Massage", "description": "Deep tissue and trigger point therapy" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Facial", "description": "European-style facial with deep cleansing, exfoliation, and hydration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chemical Peel", "description": "Addresses acne, hyperpigmentation, fine lines and dull skin" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Waxing", "description": "Full face and body waxing services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permanent Jewelry", "description": "Clasp-free welded jewelry in gold-filled, sterling silver, and enamel" } }
+      ]
+    },
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Sheila Johnson Hone",
+        "jobTitle": "Master Esthetician"
+      },
+      {
+        "@type": "Person",
+        "name": "Shiloh Bowles",
+        "jobTitle": "Licensed Massage Therapist"
+      }
+    ]
+  }
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Renewal Day Spa — Payson, UT</title>
+  <title>Renewal Day Spa — Massage, Facials & Waxing in Payson, UT</title>
+  <meta name="description" content="Renewal Day Spa in Payson, Utah offers therapeutic massage, facials, waxing, and permanent jewelry. By appointment only — call or text (801) 465-8777." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://renwal-spa-website.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Renewal Day Spa — Massage, Facials & Waxing in Payson, UT" />
+  <meta property="og:description" content="Where healing begins. Therapeutic massage, facials, waxing, and permanent jewelry by appointment in Payson, Utah." />
+  <meta property="og:image" content="https://renwal-spa-website.vercel.app/Renewal.png" />
+  <meta property="og:url" content="https://renwal-spa-website.vercel.app/" />
+  <meta property="og:site_name" content="Renewal Day Spa" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Renewal.png" />
+  <link rel="apple-touch-icon" href="Renewal.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
