@@ -417,6 +417,43 @@
       white-space: nowrap;
     }
 
+    .pricing-footer-contacts {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .pf-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+    }
+
+    .pf-contact-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--copper);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .pf-contact-phone {
+      color: var(--charcoal) !important;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .pf-contact-services {
+      font-size: 0.82rem;
+      color: #7A6E65;
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
     /* FOOTER */
     .footer {
       background: #0B2B36;
@@ -787,10 +824,20 @@
       </div>
 
       <p class="pricing-footer-note" data-aos="fade-up">
-        Prices subject to change. Call or text to book your appointment:<br>
-        Sheila <a href="tel:8014658777">(801) 465-8777</a> &mdash; Facials &amp; Skin<br>
-        Shiloh <a href="tel:8018369837">(801) 836-9837</a> &mdash; Massage &amp; Permanent Jewelry
+        Prices subject to change. Call or text to book your appointment.
       </p>
+      <div class="pricing-footer-contacts" data-aos="fade-up" data-aos-delay="50">
+        <div class="pf-contact">
+          <span class="pf-contact-name">Sheila</span>
+          <a href="tel:8014658777" class="pf-contact-phone">(801) 465-8777</a>
+          <span class="pf-contact-services">Facials &amp; Skin</span>
+        </div>
+        <div class="pf-contact">
+          <span class="pf-contact-name">Shiloh</span>
+          <a href="tel:8018369837" class="pf-contact-phone">(801) 836-9837</a>
+          <span class="pf-contact-services">Massage &amp; Permanent Jewelry</span>
+        </div>
+      </div>
 
       <div style="text-align:center; margin-top:2.5rem;" data-aos="fade-up">
         <a href="index.html#contact" class="btn btn-copper">Book an Appointment</a>
