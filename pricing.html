@@ -409,9 +409,13 @@
       margin-top: 3rem;
       color: #7A6E65;
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .pricing-footer-note a { color: var(--copper); }
+    .pricing-footer-note a {
+      color: var(--copper);
+      white-space: nowrap;
+    }
 
     /* FOOTER */
     .footer {
@@ -483,6 +487,7 @@
       .nav-logo img { height: 110px; width: 110px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .footer-inner > *:first-child { grid-column: 1 / -1; }
+      .pricing-footer-note a { display: block; }
     }
 
     @media (max-width: 480px) {
@@ -599,7 +604,7 @@
                 <span class="pricing-item-name">Facial</span>
                 <span class="pricing-item-sub">60 min</span>
               </div>
-              <span class="pricing-item-price">$65</span>
+              <span class="pricing-item-price">$75</span>
             </div>
             <div class="pricing-item">
               <div class="pricing-item-info">
@@ -816,7 +821,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-hours">
-          <span>📞 <a href="tel:8014658777" style="color: rgba(255,255,255,0.6); text-decoration: none;">(801) 465-8777</a></span>
+          <span>📞 <a href="tel:8014658777" style="color: rgba(255,255,255,0.6); text-decoration: none;">(801) 465-8777</a> <span style="color: rgba(255,255,255,0.45); font-size: 0.85rem;">— Sheila</span></span>
+          <span>📞 <a href="tel:8018369837" style="color: rgba(255,255,255,0.6); text-decoration: none;">(801) 836-9837</a> <span style="color: rgba(255,255,255,0.45); font-size: 0.85rem;">— Shiloh</span></span>
           <span>📍 764 E 100 N, Downstairs</span>
           <span>Payson, UT 84651</span>
           <span style="margin-top: 0.5rem;">By appointment only</span>
